@@ -7,7 +7,8 @@ This is the cart page proceed to review your items and place the order.
 CART-ABC Company PVT LTD
 {% endblock %}
 {% block content %}
-{% if  cat_items %}
+
+{% if not cart_items  %}
 <div>
     <div class="text-center">
     <br>
@@ -19,7 +20,8 @@ CART-ABC Company PVT LTD
         Please Click<a href="{% url 'shopapp:allProdCat' %}"> Here</a>to continue shopping.
     </p>
     </div>
-</div>
+
+
 {% else %}
 <div>
     <div class="text-center">
@@ -42,7 +44,7 @@ CART-ABC Company PVT LTD
                     {% for cart_item in cart_items %}
                     <tr>
                         <td>
-                            <a href="cart_item.product.get_absolute_url"><img src="{{cart_item.product.image.url}}" alt="" style="width:100px;height:100px;"class="float-left rounded custom_image"></a>
+                            <a href="#cart"><img src="{{cart_item.product.image.url}}" alt="" style="width:100px;height:100px;"class="float-left rounded custom_image"></a>
                         </td>
                         <td class="text_left">
                         {{cart_item.product.name}}
